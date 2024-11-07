@@ -95,7 +95,7 @@ endef
 
 $(eval $(call compilation-rules, $(OBJ_FOLDER), devices/lana_tny/startup/))
 $(eval $(call compilation-rules, $(OBJ_FOLDER), devices/lana_tny/src/))
-$(eval $(call compilation-rules, $(OBJ_FOLDER), source/))
+$(eval $(call compilation-rules, $(OBJ_FOLDER), projects/blink/src/))
 
 # Cancel implicit rules
 .SUFFIXES:
