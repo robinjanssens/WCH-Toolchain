@@ -7,6 +7,8 @@ ELF_FILE = $(abspath $(PROJECT_PATH)/bin/$(PROJECT_NAME).elf)
 build:
 	@ make -C $(BASE_DIR) build OUTPUT_NAME=$(PROJECT_NAME) PROJECT_PATH=$(PROJECT_PATH)
 
+$(ELF_FILE): build
+
 .PHONY: clean
 clean:
 	@ rm -r bin 2> /dev/null || true
