@@ -1,5 +1,8 @@
 TOOLPREFIX = /opt/homebrew/opt/riscv-gnu-toolchain/bin/riscv64-unknown-elf-
 
+BIN_FOLDER = $(abspath $(PROJECT_PATH)/bin)
+OBJ_FOLDER = $(abspath $(PROJECT_PATH)/obj)
+
 ELF_FILE = $(BIN_FOLDER)/$(OUTPUT_NAME).elf
 BIN_FILE = $(BIN_FOLDER)/$(OUTPUT_NAME).bin
 HEX_FILE = $(BIN_FOLDER)/$(OUTPUT_NAME).hex
@@ -21,7 +24,7 @@ C_FILES = \
 	devices/lana_tny/src/ch32v20x_it.c \
 	devices/lana_tny/src/system_ch32v20x.c \
 	devices/lana_tny/src/lana.c \
-	$(PROJECT_DIR)/src/main.c
+	$(PROJECT_PATH)/src/main.c
 C_OFILES = $(foreach file,$(C_FILES),$(OBJ_FOLDER)/$(notdir $(file:.c=.c.o)))  # adapt path/file.c to OBJ_FOLDER/file.c.o
 
 # --- Include C++ Files ---
@@ -50,7 +53,7 @@ include $(wildcard $(OFILES:.o=.d))
 
 INCLUDE_DIRS = \
 	-Idevices/lana_tny/inc \
-	-I$(PROJECT_DIR)/src/ \
+	-I$(PROJECT_PATH)/src/ \
 
 # ------------------------------
 # Compilation Rules
@@ -95,7 +98,7 @@ endef
 
 $(eval $(call compilation-rules, $(OBJ_FOLDER), devices/lana_tny/startup/))
 $(eval $(call compilation-rules, $(OBJ_FOLDER), devices/lana_tny/src/))
-$(eval $(call compilation-rules, $(OBJ_FOLDER), projects/blink/src/))
+$(eval $(call compilation-rules, $(OBJ_FOLDER), $(PROJECT_PATH)/src/))
 
 # Cancel implicit rules
 .SUFFIXES:
