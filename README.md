@@ -24,13 +24,18 @@ Install Flashtool
 
 ## Develop
 
-User code should be placed in the `/projects` folder
+User code should be placed in the `/projects` folder.<br>
+When creating new project folder, copy `makefile` from a different project inside your new project's folder or copy an existing project.
 
 ## Build
+
+Inside your project's folder:
 
 - `make`
 
 ## Flash
+
+Inside your project's folder:
 
 - Boot device in programming mode by holding button while powering on device
 - `make flash`
