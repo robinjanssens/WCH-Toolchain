@@ -1,4 +1,4 @@
-TOOLPREFIX = /opt/homebrew/opt/riscv-gnu-toolchain/bin/riscv64-unknown-elf-
+TOOLPREFIX = riscv64-unknown-elf-
 
 BIN_FOLDER = $(abspath $(PROJECT_PATH)/bin)
 OBJ_FOLDER = $(abspath $(PROJECT_PATH)/obj)
